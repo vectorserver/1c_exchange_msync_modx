@@ -29,3 +29,4 @@ $datafile = [
     'import.xml' => MODX_ASSETS_PATH . 'components/msync/1c_temp/import.xml',
     'offers.xml' => MODX_ASSETS_PATH . 'components/msync/1c_temp/offers.xml',
 ];
+```
