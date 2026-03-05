@@ -1,6 +1,6 @@
 # MODX revo | mSync Cron Integration
 
-Инструкция по настройке автоматического импорта товаров для компонента mSync на MODX Revolution.
+Инструкция по настройке автоматического импорта товаров для компонента mSync на MODX Revolution https://modstore.pro/packages/import-and-export/msync.
 
 ## Установка
 
