@@ -26,7 +26,6 @@ php ~/www/assets/components/msync/1c_exchange.php
 
 ```php
 $datafile = [
-    // 'Имя_файла_в_процессоре' => 'Полный_путь_на_сервере'
     'import.xml' => MODX_ASSETS_PATH . 'components/msync/1c_temp/import.xml',
     'offers.xml' => MODX_ASSETS_PATH . 'components/msync/1c_temp/offers.xml',
 ];
