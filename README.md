@@ -1,4 +1,4 @@
-# mSync Cron Integration
+# MODX revo | mSync Cron Integration
 
 Инструкция по настройке автоматического импорта товаров для компонента mSync на MODX Revolution.
 
