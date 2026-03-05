@@ -17,3 +17,16 @@
 ### Команда запуска:
 ```bash
 php ~/www/assets/components/msync/1c_exchange.php
+
+## Настройка путей к файлам
+
+Внутри файла `1c_exchange.php` найдите массив `$datafile`. Вам необходимо убедиться, что пути соответствуют вашей структуре папок, куда 1С выгружает XML-файлы. 
+
+По умолчанию настроено на стандартную временную папку mSync:
+
+```php
+$datafile = [
+    // 'Имя_файла_в_процессоре' => 'Полный_путь_на_сервере'
+    'import.xml' => MODX_ASSETS_PATH . 'components/msync/1c_temp/import.xml',
+    'offers.xml' => MODX_ASSETS_PATH . 'components/msync/1c_temp/offers.xml',
+];
