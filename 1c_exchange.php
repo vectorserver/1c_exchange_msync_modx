@@ -41,10 +41,16 @@ if (php_sapi_name() == "cli") {
         exit("Скрипт уже запущен.\n");
     }
 
-    $datafile = [
-        'import.xml' => MODX_ASSETS_PATH . 'components/msync/1c_temp/import.xml',
-        'offers.xml' => MODX_ASSETS_PATH . 'components/msync/1c_temp/offers.xml',
-    ];
+    $path = MODX_ASSETS_PATH . 'components/msync/1c_temp/';
+    $datafile = [];
+
+    // Собираем файлы
+    foreach (glob($path . "{import,offers}*.xml", GLOB_BRACE) as $filename) {
+        $datafile[basename($filename)] = $filename;
+    }
+
+    // Сортируем ключи (имена файлов) «естественным» образом
+    uksort($datafile, 'strnatcasecmp');
 
     $options = [
         'processors_path' => $modx->getOption('msync.core_path', null, $modx->getOption('core_path') . 'components/msync/') . 'processors/'
