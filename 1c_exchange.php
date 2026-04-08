@@ -3,7 +3,6 @@ ini_set('display_errors', 1);
 ini_set('error_reporting', 1);
 
 
-
 define('MODX_API_MODE', true);
 require_once dirname(dirname(dirname(dirname(__FILE__)))) . '/index.php';
 
@@ -70,8 +69,8 @@ if (php_sapi_name() == "cli") {
 
         while ($processing) {
             $response = $modx->runProcessor('mgr/import/process', [
-                'action'   => 'mgr/import/process',
-                'mode'     => 'import',
+                'action' => 'mgr/import/process',
+                'mode' => 'import',
                 'filename' => $file
             ], $options);
 
@@ -92,6 +91,40 @@ if (php_sapi_name() == "cli") {
                 }
             }
             $iter++;
+        }
+
+        echo "Переменные сессии очищены.\n";
+        unset($_SESSION['last_1c_offer']
+            , $_SESSION['importFinish']
+            , $_SESSION['lastCategory']
+            , $_SESSION['totalCategories']
+            , $_SESSION['lastProperty']
+            , $_SESSION['totalProperties']
+            , $_SESSION['lastImportProduct']
+            , $_SESSION['lastProduct']
+            , $_SESSION['totalProducts']
+            , $_SESSION['categories_mapping']
+            , $_SESSION['properties_mapping']
+            , $_SESSION['feature_mapping']
+            , $_SESSION['price_mapping']
+            , $_SESSION['importResources']
+        );
+
+        $_SESSION['feature_mapping'] = array();
+        $_SESSION['importFileCount'] = 0;
+
+// Хранилище созданных и обновленных категорий и товаров
+        if (!isset($_SESSION['importResources'])) {
+            $_SESSION['importResources'] = array(
+                'category' => array(
+                    'created' => array(),
+                    'updated' => array()
+                ),
+                'product' => array(
+                    'created' => array(),
+                    'updated' => array()
+                )
+            );
         }
     }
 
@@ -186,8 +219,3 @@ if (php_sapi_name() == "cli") {
     @session_write_close();
     exit($response);
 }
-
-
-
-
-
