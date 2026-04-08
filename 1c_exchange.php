@@ -93,7 +93,7 @@ if (php_sapi_name() == "cli") {
             $iter++;
         }
 
-        echo "Переменные сессии очищены.\n";
+        echo "{$file} Переменные сессии очищены.\n";
         unset($_SESSION['last_1c_offer']
             , $_SESSION['importFinish']
             , $_SESSION['lastCategory']
@@ -113,7 +113,7 @@ if (php_sapi_name() == "cli") {
         $_SESSION['feature_mapping'] = array();
         $_SESSION['importFileCount'] = 0;
 
-// Хранилище созданных и обновленных категорий и товаров
+        // Хранилище созданных и обновленных категорий и товаров
         if (!isset($_SESSION['importResources'])) {
             $_SESSION['importResources'] = array(
                 'category' => array(
